@@ -13,6 +13,8 @@
 // pointer parameter, the ownership of some memory address. However, like
 // the text above, you still need to state how the contract is observed in
 // the comment on the code block.
+// 
+// 验证参数指针和内存的所有权
 //
 // NOTE: All the comments are for the readability and the maintainability of
 // your code, while the Rust compiler hands its trust of soundness of your
@@ -22,17 +24,18 @@
 // Execute `rustlings hint tests5` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+
 
 /// # Safety
 ///
 /// The `address` must contain a mutable reference to a valid `u32` value.
-unsafe fn modify_by_address(address: usize) {
+unsafe fn modify_by_address(mut address: usize) {
     // TODO: Fill your safety notice of the code block below to match your
     // code's behavior and the contract of this function. You may use the
     // comment of the test below as your format reference.
     unsafe {
-        todo!("Your code goes here")
+        // todo!("Your code goes here")
+        *(address as *mut u32) = 0xAABBCCDD;
     }
 }
 
