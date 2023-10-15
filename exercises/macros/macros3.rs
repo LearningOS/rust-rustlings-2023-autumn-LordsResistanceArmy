@@ -5,7 +5,12 @@
 // Execute `rustlings hint macros3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+
+
+// 方法三
+fn main() {
+    macros::my_macro!();
+}
 
 mod macros {
     macro_rules! my_macro {
@@ -13,8 +18,33 @@ mod macros {
             println!("Check out my macro!");
         };
     }
+    pub(crate) use my_macro;
 }
 
-fn main() {
-    my_macro!();
-}
+// //方法二
+// fn main() {
+//     my_macro!();
+// }
+
+// mod macros {
+//     #[macro_export]
+//     macro_rules! my_macro {
+//         () => {
+//             println!("Check out my macro!");
+//         };
+//     }
+// }
+
+// // 方法一
+// #[macro_use]
+// mod macros {
+//     macro_rules! my_macro {
+//         () => {
+//             println!("Check out my macro!");
+//         };
+//     }
+// }
+
+// fn main() {
+//     my_macro!();
+// }
